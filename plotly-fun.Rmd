@@ -1,0 +1,38 @@
+---
+title: "Fun-with-plotly"
+author: "Student!"
+date: "9/6/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Plotly in R Markdown.
+
+#Download the needed libraries.
+```{r}
+install.packages("plotly")
+library(plotly)
+```
+
+```{r}
+head(mtcars)
+```
+
+
+```{r}
+library(plotly)
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", color = ~factor(cyl))
+```
+
+
+```{r}
+library(plotly)
+temp <- rnorm(mtcars, mean = 30, sd = 5)
+hp <- rnorm(mtcars)
+cyl <- rnorm(mtcars)
+plot_ly(x = ~cyl, y = ~hp, z = ~mpg, type = "scatter3d", color = ~temp)
+```
+
