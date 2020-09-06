@@ -1,0 +1,40 @@
+---
+title: "Fun-with-plotly"
+author: "Student!"
+date: "9/6/2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Plotly in R Markdown.
+
+#Download the needed libraries.
+```{r}
+library(plotly)
+```
+
+# check the data
+```{r}
+head(mtcars)
+```
+
+#Use plot_ly function to draw a scatter for wt and mpg.
+```{r}
+library(plotly)
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", color = ~factor(cyl))
+```
+
+#Created the 3d with scatter3d function.
+```{r}
+library(plotly)
+temp <- rnorm(mtcars, mean = 30, sd = 5)
+hp <- rnorm(mtcars)
+cyl <- rnorm(mtcars)
+plot_ly(x = ~cyl, y = ~hp, z = ~mpg, type = "scatter3d", color = ~temp)
+```
+
